@@ -93,12 +93,12 @@ int count(node ** head)
         count++;
         temp = temp->next;
     }
-    
-
+    return count;
 }
-void bubblesort(node * head)
+//Reverse the list
+void reverse(node ** head)
 {
-
+    
 }
 int main()
 {
