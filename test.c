@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//Update for git hub
 typedef struct node {
     int data ;
     struct node * next;
