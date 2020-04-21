@@ -98,8 +98,19 @@ int count(node ** head)
 //Reverse the list
 void reverse(node ** head)
 {
-    
+    node *prev, *current, * nextn;
+    prev = NULL;
+    current = nextn = *head;
+    while(current != NULL)
+    {
+        nextn = nextn->next;
+        current->next = prev;
+        prev = current;
+        current = nextn;
+    }
+    *head = prev;
 }
+
 int main()
 {
     node * head = NULL;
@@ -108,7 +119,7 @@ int main()
         push(&head,i);
     }
     pushn(&head,25,1);
-    printf("The reverse is : \n");
+    printf("The List is : \n");
     printList(head);
     pop(&head);
     printf("After Popping : \n");
@@ -118,5 +129,8 @@ int main()
     printList(head);
     popn(&head,1);
     printf("After popping from 1st position\n");
+    printList(head);
+    reverse(&head);
+    printf("After reverse\n");
     printList(head);
 }
