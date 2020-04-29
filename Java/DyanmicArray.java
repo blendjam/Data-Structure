@@ -9,17 +9,19 @@ package com.example.java;
  5)Object remove(int index) -> remove from an index
  */
 
-public class DyanmicArray {
-    private int[] values;
-    private int size;//Not the size of the array but the no of values in the array
+public class DynamicArray<T>{
+    private T[] values;
+    private int size = 0;//Not the size of the array but the no of values in the array
+    private int capacity = 0;
 
-    public DyanmicArray(int length){ values = new int[length];}
-
+    public DynamicArray(int capacity){this.capacity = capacity;
+        values = (T[]) new Object[capacity];
+    }
     public int size(){
         return this.size;
     }
 
-    public int get(int index){
+    public T get(int index){
         if(index >= size)
             throw new IllegalArgumentException();
         return values[index];
@@ -31,7 +33,7 @@ public class DyanmicArray {
         }
     }
 
-    public void add(int data){
+    public void add(T data){
         ifFull();
         values[size++] = data;
     }
@@ -44,12 +46,10 @@ public class DyanmicArray {
     }
 
     private void ifFull(){
-        int[] bigger = new int[size * 2];
+        T[] bigger = (T[]) new Object[size * 2];
         if(size <= values.length) return;
         for(int i = 0; i < size; i++)
             bigger[i] = values[i];
         values = bigger;
     }
-
 }
-
