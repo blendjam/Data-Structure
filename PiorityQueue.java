@@ -19,6 +19,7 @@ public class PQueue {
 
     public void removeMin() {
         blob.removeMin(minIndex);
+        blob.remove(size - 1);
         size--;
     }
 
