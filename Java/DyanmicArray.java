@@ -38,11 +38,21 @@ public class DynamicArray<T>{
         values[size++] = data;
     }
 
+    public void addAt(int index, T data){
+        ifFull();
+        values[index] = data;
+        size++;
+    }
+
     public void remove(int index){
         for(int i = index; i < size - 1; i++){
             values[i] = values[i + 1];
         }
         size--;
+    }
+
+    public void removeMin(int minIndex){
+        values[minIndex] = values[size - 1];
     }
 
     private void ifFull(){
@@ -52,4 +62,6 @@ public class DynamicArray<T>{
             bigger[i] = values[i];
         values = bigger;
     }
+
 }
+
